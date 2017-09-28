@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Converter';
+  currentConverter: string = 'weigth';
+  myEvent(event) {
+    this.currentConverter = event.target.id;
+    console.log(this.currentConverter);
+  }
 }
