@@ -39,21 +39,21 @@ export class WeigthComponent implements OnInit {
   }
 
   calcPoundFromKilo(): number{
-    return this.kilo * 2.20462262;
+    return Number((this.kilo * 2.20462262).toFixed(4));
   }
   calcStonesFromKilo(): number{
-    return this.kilo * 0.157473044;    
+    return Number((this.kilo * 0.157473044).toFixed(4));    
   }
   calcKiloFromPounds(): number{
-    return this.pound/2.20462262;
+    return Number((this.pound/2.20462262).toFixed(4));
   }
   calcStonesFromPounds(): number{
-    return this.pound * 0.0714285714;
+    return Number((this.pound * 0.0714285714).toFixed(4));
   }
   calcKiloFromStones(): number{
-    return this.stone * 6.35029318;
+    return Number((this.stone * 6.35029318).toFixed(4));
   }
   calcPoundsFromStones(): number{
-    return this.stone * 14;
+    return Number((this.stone * 14).toFixed(4));
   }
 }
