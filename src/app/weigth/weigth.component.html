@@ -1,17 +1,19 @@
-<div class="container">
-    <h1 >Weigth Conversions</h1>
-    <div class="parent">
-      <div class="relative">
-        <label for="kilograms">Kilograms</label>
-        <input id="kilograms" name="kilograms" [(ngModel)]="kilo" placeholder="kilo" (keyup)="calc($event)" (focus)=clearAll()>
-      </div>
-      <div class="relative">
-          <label for="pounds">Pounds</label>
-          <input type="text" id="pounds" name="pounds" [(ngModel)]="pound" placeholder="pound" (keyup)="calc($event)" (focus)=clearAll()>
-        </div>
-      <div class="relative">
-          <label for="stones">Stones</label>
-          <input type="text" id="stones" name="stones" [(ngModel)]="stone" placeholder="stone" (keyup)="calc($event)" (focus)=clearAll()>
-      </div>
-    </div>
+<div class="container" align=center>
+  <h1 >Weigth Conversions</h1>
+
+  <div class="column-left">
+    <label for="kilograms">Kilograms</label><br>
+    <input id="kilograms" name="kilograms" [(ngModel)]="kilo" placeholder="kilo" (keyup)="calc($event)" (focus)=clearAll()>
+  </div>
+
+  <div class="column-center">
+    <label for="pounds">Pounds</label><br>
+    <input type="text" id="pounds" name="pounds" [(ngModel)]="pound" placeholder="pound" (keyup)="calc($event)" (focus)=clearAll()>
+  </div>
+
+  <div class="column-right">
+    <label for="stones">Stones</label><br>
+    <input type="text" id="stones" name="stones" [(ngModel)]="stone" placeholder="stone" (keyup)="calc($event)" (focus)=clearAll()>  
+  </div>
+
 </div>

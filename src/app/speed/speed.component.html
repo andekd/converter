@@ -1,3 +1,17 @@
-<p>
-  speed works!
-</p>
+<div class="container">
+  <h1 >Speed Conversions</h1>
+  <div class="parent">
+    <div class="relative">
+      <label for="kph">Km/h</label>
+      <input id="kph" name="kph" [(ngModel)]="kph" placeholder="kph" (keyup)="calc($event)" (focus)=clearAll()>
+    </div>
+    <div class="relative">
+        <label for="mps">Meter/s</label>
+        <input type="text" id="mps" name="mps" [(ngModel)]="mps" placeholder="mps" (keyup)="calc($event)" (focus)=clearAll()>
+      </div>
+    <div class="relative">
+        <label for="mph">Miles/h</label>
+        <input type="text" id="mph" name="mph" [(ngModel)]="mph" placeholder="mph" (keyup)="calc($event)" (focus)=clearAll()>
+    </div>
+  </div>
+</div>

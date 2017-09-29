@@ -1,14 +1,21 @@
-input, label {
-    display:block;
+.container {
+	position: relative;
 }
 
-div.parent {
-    align-content: center;
+.column-left {
+	width: 33%;
+	left: 0;
+	position: absolute;
 }
-
-div.relative {
-    float: left;
-    margin-right: 20px;
+.column-center {
+	width: 34%;
+	margin-left: 33%;
+	position: absolute;
+}
+.column-right {
+	width: 33%;
+	right: 0;
+	position: absolute;
 }
 label {
     display: inline-block;
@@ -17,7 +24,7 @@ label {
     color: #607D8B;
     font-weight: bold;
   }
-  input {
+input {
     height: 2em;
     font-size: 1em;
     padding-left: .4em;

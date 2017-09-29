@@ -43,18 +43,28 @@ export class TemperatureComponent implements OnInit {
     } else {return null;}
   }
   calcKelvinFromCelsius(){
-    return this.celsius - 273.15;    
+    if (this.celsius != null) {
+      return this.celsius - 273.15;    
+    } else {return null;}
   }
   calcCelsiusFromFahrenheit(){
-    return (this.fahrenheit - 32) * 5/9;
-  }
+    if (this.fahrenheit != null) {
+      return (this.fahrenheit - 32) * 5/9;
+  } else {return null;}
+}
   calcKelvinFromFahrenheit(){
-    return (this.fahrenheit + 459.67) / 1.8;
-  }
+    if (this.fahrenheit != null) {
+      return (this.fahrenheit + 459.67) / 1.8;
+  } else {return null;}
+}
   calcCelsiusFromKelvin(){
-    return this.kelvin + 273.15;
+    if (this.kelvin != null) {
+      return this.kelvin + 273.15;
+    } else {return null;}
   }
   calcFahrenheitFromKelvin(){
-    return (this.kelvin * 9/5) - 459.67;
-  }
+    if (this.kelvin != null) {
+      return (this.kelvin * 9/5) - 459.67;
+  } else {return null;}
+}
 }
