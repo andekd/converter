@@ -36,24 +36,25 @@ export class SpeedComponent implements OnInit {
     this.mps = null;
     this.mph = null;
   }
+//Number((this.kilo * 2.20462262).toFixed(4))
 
   calcMpsFromKph(): number{
-    return this.kph/3600 * 1000;
+    return Number((this.kph/3600 * 1000).toFixed(4));
   }
   calcMphFromKph(): number{
-    return this.kph * 0.621371192;    
+    return Number((this.kph * 0.621371192).toFixed(4));    
   }
   calcKphFromMps(): number{
-    return this.mps * 3600 / 1000;
+    return Number((this.mps * 3600 / 1000).toFixed(4));
   }
   calcMphFromMps(): number{
-    return this.mps * 2.23693629;
+    return Number((this.mps * 2.23693629).toFixed(4));
   }
   calcKphFromMph(): number{
-    return this.mph * 1.609344;
+    return Number((this.mph * 1.609344).toFixed(4));
   }
   calcMpsFromMph(): number{
-    return this.mph / 23693629;
+    return Number((this.mph / 23693629).toFixed(4));
   }
 }
 

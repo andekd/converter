@@ -36,35 +36,34 @@ export class TemperatureComponent implements OnInit {
     this.fahrenheit = null;
     this.kelvin = null;
   }
-
   calcFahrenheitFromCelsius(){
     if (this.celsius != null) {
-     return (this.celsius * 9/5) + 32;
+     return Number(((this.celsius * 9/5) + 32).toFixed(4));
     } else {return null;}
   }
   calcKelvinFromCelsius(){
     if (this.celsius != null) {
-      return this.celsius - 273.15;    
+      return Number((this.celsius - 273.15).toFixed(4)); 
     } else {return null;}
   }
   calcCelsiusFromFahrenheit(){
     if (this.fahrenheit != null) {
-      return (this.fahrenheit - 32) * 5/9;
+      return Number(((this.fahrenheit - 32) * 5/9).toFixed(4));
   } else {return null;}
 }
   calcKelvinFromFahrenheit(){
     if (this.fahrenheit != null) {
-      return (this.fahrenheit + 459.67) / 1.8;
+      return Number(((this.fahrenheit + 459.67) / 1.8).toFixed(4));
   } else {return null;}
 }
   calcCelsiusFromKelvin(){
     if (this.kelvin != null) {
-      return this.kelvin + 273.15;
+      return Number((this.kelvin + 273.15).toFixed(4));
     } else {return null;}
   }
   calcFahrenheitFromKelvin(){
     if (this.kelvin != null) {
-      return (this.kelvin * 9/5) - 459.67;
+      return Number(((this.kelvin * 9/5) - 459.67).toFixed(4));
   } else {return null;}
 }
 }
