@@ -1,17 +1,26 @@
-<div class="container">
+<div class="container" align=center>
   <h1 id="temperatureTitle">Temperature Conversions</h1>
-  <div class="parent">
-    <div class="relative">
-      <label for="celsius">Celsius</label>
-      <input id="celsius" name="celsius" [(ngModel)]="celsius" placeholder="celsius" (keyup)="calc($event)" (focus)=clearAll()>
-    </div>
-    <div class="relative">
-        <label for="fahrenheit">Fahrenheit</label>
-        <input id="fahrenheit" name="fahrenheit" [(ngModel)]="fahrenheit" placeholder="fahrenheit" (keyup)="calc($event)" (focus)=clearAll()>
-      </div>
-    <div class="relative">
-        <label for="kelvin">Kelvin</label>
-        <input id="kelvin" name="stones" [(ngModel)]="kelvin" placeholder="kelvin" (keyup)="calc($event)" (focus)=clearAll()>
-    </div>
+  
+  <div class="column-left">
+    <label for="celsius">Celsius</label><br>
+    <input id="celsius" name="celsius" [(ngModel)]="celsius" placeholder="celsius" (keyup)="calc($event)" (focus)=clearAll()>
   </div>
+  <div class="column-center">
+    <label for="fahrenheit">Fahrenheit</label><br>
+    <input id="fahrenheit" name="fahrenheit" [(ngModel)]="fahrenheit" placeholder="fahrenheit" (keyup)="calc($event)" (focus)=clearAll()>
+  </div>
+  <div class="column-right">
+    <label for="kelvin">Kelvin</label><br>
+    <input id="kelvin" name="stones" [(ngModel)]="kelvin" placeholder="kelvin" (keyup)="calc($event)" (focus)=clearAll()>
+  </div>
+</div>
+<br><br><br><br><br>
+<div class="container" align="center">
+  <h3 class="ind">Accuracy</h3>
+  <label for="accDD">Decimals: </label>
+  <select id="accDD" [(ngModel)]="selectedAccuracy.id" (ngModelChange)="onSelectionChange($event)">
+    <option *ngFor="let acc of accuracies" value= {{acc.id}}>
+      {{acc.name}}
+    </option>
+  </select>
 </div>
