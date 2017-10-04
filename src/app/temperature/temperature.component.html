@@ -1,16 +1,16 @@
 <div class="container">
-  <h1 >Temperature Conversions</h1>
+  <h1 id="temperatureTitle">Temperature Conversions</h1>
   <div class="parent">
     <div class="relative">
-      <label for="kilograms">Celsius</label>
+      <label for="celsius">Celsius</label>
       <input id="celsius" name="celsius" [(ngModel)]="celsius" placeholder="celsius" (keyup)="calc($event)" (focus)=clearAll()>
     </div>
     <div class="relative">
-        <label for="pounds">Fahrenheit</label>
+        <label for="fahrenheit">Fahrenheit</label>
         <input id="fahrenheit" name="fahrenheit" [(ngModel)]="fahrenheit" placeholder="fahrenheit" (keyup)="calc($event)" (focus)=clearAll()>
       </div>
     <div class="relative">
-        <label for="stones">Kelvin</label>
+        <label for="kelvin">Kelvin</label>
         <input id="kelvin" name="stones" [(ngModel)]="kelvin" placeholder="kelvin" (keyup)="calc($event)" (focus)=clearAll()>
     </div>
   </div>

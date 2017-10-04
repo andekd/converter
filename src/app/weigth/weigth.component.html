@@ -1,5 +1,5 @@
 <div class="container" align=center>
-  <h1 >Weigth Conversions</h1>
+  <h1 id="weigthTitle">Weigth Conversions</h1>
 
   <div class="column-left">
     <label for="kilograms">Kilograms</label><br>
@@ -15,5 +15,26 @@
     <label for="stones">Stones</label><br>
     <input type="text" id="stones" name="stones" [(ngModel)]="stone" placeholder="stone" (keyup)="calc($event)" (focus)=clearAll()>  
   </div>
-
+  <br><br><br><br><br>
+  <div>
+  <table>
+    <thead>
+      <td>Accuracy</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span *ngFor="let entry of entries; let idx = index">
+            <input type="radio" name="radiogroup"
+              [checked]="idx === 2"
+              [value]="entry.id"
+              (change)="onSelectionChange(entry)"
+            >
+            {{ entry.description }}
+          </span>
+        </td>
+      </tr>
+      </tbody>
+  </table>
+</div>
 </div>

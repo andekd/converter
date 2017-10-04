@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage } from './app-old.po';
 
 describe('converter App', () => {
   let page: AppPage;
@@ -9,6 +9,6 @@ describe('converter App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Welcome to Converter!');
   });
 });
