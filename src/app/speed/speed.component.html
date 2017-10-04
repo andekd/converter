@@ -1,17 +1,21 @@
-<div class="container">
+<div class="container" align=center>
   <h1 id="speedTitle">Speed Conversions</h1>
-  <div class="parent">
-    <div class="relative">
-      <label for="kph">Km/h</label>
-      <input id="kph" name="kph" [(ngModel)]="kph" placeholder="kph" (keyup)="calc($event)" (focus)=clearAll()>
-    </div>
-    <div class="relative">
-        <label for="mps">Meter/s</label>
-        <input type="text" id="mps" name="mps" [(ngModel)]="mps" placeholder="mps" (keyup)="calc($event)" (focus)=clearAll()>
-      </div>
-    <div class="relative">
-        <label for="mph">Miles/h</label>
-        <input type="text" id="mph" name="mph" [(ngModel)]="mph" placeholder="mph" (keyup)="calc($event)" (focus)=clearAll()>
-    </div>
+  
+  <div class="column-left" align=center>
+    <label class="l-conv" for="kph">Km/h</label><br>
+    <input [ngStyle]="{'background-color': '#' + bgColor}" class="i-conv" id="kph" name="kph"  ng-style="{'background-color':color}" [(ngModel)]="kph" placeholder="kph" (keyup)="calc($event)" (focus)=clearAll()>
   </div>
+  <div class="column-center">
+    <label class="l-conv" for="mps">Meter/s</label><br>
+    <input [ngStyle]="{'background-color': '#' + bgColor}" class="i-conv" type="text" id="mps" name="mps" [(ngModel)]="mps" placeholder="mps" (keyup)="calc($event)" (focus)=clearAll()>
+  </div>
+  <div class="column-right">
+    <label class="l-conv" for="mph">Miles/h</label><br>
+    <input [ngStyle]="{'background-color': '#' + bgColor}" class="i-conv" type="text" id="mph" name="mph" [(ngModel)]="mph" placeholder="mph" (keyup)="calc($event)" (focus)=clearAll()>
+  </div>
+</div>
+<br><br><br><br><br>
+<div class="checkbox" align="center">
+  <input #chkBox id="chkBox" type="checkbox" [checked]="isChecked" (change)=onChkBoxChanged(chkBox.checked)>
+  <label for="chkBox">Background-red: </label>
 </div>

@@ -1,24 +1,48 @@
-input, label {
-    display:block;
+.container {
+  position: relative;
 }
 
-div.parent {
-    align-content: center;
+.column-left {
+  width: 33%;
+  left: 0;
+  position: absolute;
+}
+.column-center {
+  width: 34%;
+  margin-left: 33%;
+  position: absolute;
+}
+.column-right {
+  width: 33%;
+  right: 0;
+  position: absolute;
 }
 
-div.relative {
-    float: left;
-    margin-right: 20px;
+.l-conv {
+  display: inline-block;
+  width: 8em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
 }
-label {
-    display: inline-block;
-    width: 3em;
-    margin: .5em 0;
-    color: #607D8B;
-    font-weight: bold;
-  }
-  input {
-    height: 2em;
-    font-size: 1em;
-    padding-left: .4em;
-  }
+
+.i-conv {
+  text-align: center;
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+
+
+.checkbox {
+  padding-left: 10px; 
+}
+.checkbox label {
+  display: inline-block;
+  position: relative;
+  padding-left: 5px; 
+}
+
+.checkbox input[type="checkbox"] {
+  opacity: 1; 
+}

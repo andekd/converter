@@ -11,9 +11,23 @@ export class SpeedComponent implements OnInit {
   mps: number;
   mph: number;
 
+  isChecked: boolean;
+
+  bgColor: string = 'BBFFFF';
+
   constructor() { }
 
   ngOnInit() { }
+
+  public onChkBoxChanged(value:boolean){
+    this.isChecked = value;
+    console.log('box is: ' + value);
+    if (value) {
+      this.bgColor = 'FF8888';
+    } else {
+      this.bgColor = 'BBFFFF';
+    }
+}
 
   calc(event){
     let callingField = event.target.id;
