@@ -68,7 +68,7 @@ export class SpeedComponent implements OnInit {
     return Number((this.mph * 1.609344).toFixed(4));
   }
   calcMpsFromMph(): number{
-    return Number((this.mph / 23693629).toFixed(4));
+    return Number((this.mph * 0.44704).toFixed(4));
   }
 }
 
