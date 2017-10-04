@@ -15,26 +15,41 @@
     <label for="stones">Stones</label><br>
     <input type="text" id="stones" name="stones" [(ngModel)]="stone" placeholder="stone" (keyup)="calc($event)" (focus)=clearAll()>  
   </div>
-  <br><br><br><br><br>
-  <div>
-  <table>
-    <thead>
-      <td>Accuracy</td>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <span *ngFor="let entry of entries; let idx = index">
-            <input type="radio" name="radiogroup"
-              [checked]="idx === 2"
-              [value]="entry.id"
-              (change)="onSelectionChange(entry)"
-            >
-            {{ entry.description }}
-          </span>
-        </td>
-      </tr>
-      </tbody>
-  </table>
+</div>
+<br><br><br><br><br>
+<div class="container">
+    <div class="row">
+        <h3 class="ind">Accuracy</h3>
+        <div class="reg"> 
+            <bdo>
+                <input type="radio" name="radiogroup"
+                [value]="entries[0].id"
+                (change)="onSelectionChange(entries[0])"
+              >
+              <span></span>
+              <abbr>{{ entries[0].description }}</abbr>
+            </bdo>
+        </div>
+        <div class="reg">
+            <bdo>
+                <input type="radio" name="radiogroup"
+                [value]="entries[1].id"
+                (change)="onSelectionChange(entries[1])"
+              >
+              <span></span>
+            <abbr>{{ entries[1].description }}</abbr>
+            </bdo>
+        </div>
+        <div class="reg">
+            <bdo>
+                <input type="radio" name="radiogroup"
+                [checked]="true"
+                [value]="entries[2].id"
+                (change)="onSelectionChange(entries[2])"
+              >
+              <span></span>
+            <abbr>{{ entries[2].description }}</abbr>
+            </bdo>
+        </div>
 </div>
 </div>

@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class WeigthComponent implements OnInit {
   
   kilo: number;
-  kiloAllDecimals: number;
+  kiloAllDecimals: number = 0.0;
   pound: number;
-  poundAllDecimals: number;
+  poundAllDecimals: number = 0.0;
   stone: number;
-  stoneAllDecimals: number;
+  stoneAllDecimals: number = 0.0;
   
   entries = [
     {
@@ -38,7 +38,7 @@ export class WeigthComponent implements OnInit {
 
   onSelectionChange(entry) {
     this.selectedEntry = Object.assign({}, this.selectedEntry, entry);
-    //console.log(this.selectedEntry.id);
+    console.log(this.selectedEntry.id);
     this.accuracy = this.selectedEntry.id;
     this.refreshFields()
   }
