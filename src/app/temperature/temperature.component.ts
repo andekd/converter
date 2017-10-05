@@ -15,13 +15,13 @@ export class TemperatureComponent implements OnInit {
   kelvin: number;
   kelvinAllDecimals: number = 0.0;
   
-  selectedAccuracy: Accuracy = new Accuracy(4, '4');
-  accuracies = [
+  public selectedAccuracy: Accuracy = new Accuracy(4, '4');
+  public accuracies = [
     new Accuracy(2, 'two'),
     new Accuracy(3, 'three'),
     new Accuracy(4, 'four')
   ]
-  currentAccuracy: number = 4;
+  public currentAccuracy: number = 4;
   
   constructor() { }
 
