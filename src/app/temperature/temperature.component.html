@@ -20,7 +20,7 @@
   <label for="accDD">Decimals: </label>
   <select id="accDD" [(ngModel)]="selectedAccuracy.id" (ngModelChange)="onSelectionChange($event)">
     <option *ngFor="let acc of accuracies" value= {{acc.id}}>
-      {{acc.decimals}}
+      {{acc.name}}
     </option>
   </select>
 </div>

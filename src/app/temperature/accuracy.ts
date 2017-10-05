@@ -1,3 +1,3 @@
 export class Accuracy {
-    constructor(public id: number, public decimals: string){}
+    constructor(public id: number, public name: string){}
 }
