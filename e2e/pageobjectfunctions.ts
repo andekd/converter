@@ -53,8 +53,7 @@ export class PageObjectFunctions {
     }
     clickRadiobtn(elemmNbr: number) {
         let theElement = element(by.id(this.myIds[elemmNbr]));;
-        //Need to click on paren element, probably because that the parent element shades the radiobutton element      
-        theElement.element(by.xpath("..")).click();
+        theElement.click();
     }
 
     //Dropdown list functions

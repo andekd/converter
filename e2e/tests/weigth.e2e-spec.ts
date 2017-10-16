@@ -31,7 +31,6 @@ describe('Check functionality of weigth view', function () {
             browser.sleep(browserSleep);
         });
         it('Testing conversion from kilos', () => {
-            weigthPage.setValueOfTxtField(weigthElementIds.kilograms, '1');
             let kiloTests = valData.weigthTestData.kilotests;
             for (let i in kiloTests) {
                 let currentKilo = kiloTests[i].kilo;
@@ -48,7 +47,6 @@ describe('Check functionality of weigth view', function () {
             browser.sleep(browserSleep);
         });
         it('Testing conversion from Pounds', () => {
-            weigthPage.setValueOfTxtField(weigthElementIds.kilograms, '1');
             let poundTests = valData.weigthTestData.poundtests;
             for (let i in poundTests) {
                 let currentKilo = poundTests[i].kilo;
@@ -65,7 +63,6 @@ describe('Check functionality of weigth view', function () {
             browser.sleep(browserSleep);
         });
         it('Testing conversion from Stones', () => {
-            weigthPage.setValueOfTxtField(weigthElementIds.kilograms, '1');
             let stoneTests = valData.weigthTestData.stonetests;
             for (let i in stoneTests) {
                 let currentKilo = stoneTests[i].kilo;
@@ -81,5 +78,47 @@ describe('Check functionality of weigth view', function () {
             }
             browser.sleep(browserSleep);
         });
+        it('Testing accuray/rounding', () => {
+            let accTests = valData.weigthTestData.decimaltests;
+            weigthPage.emptyAndSetTextField(weigthElementIds.kilograms, accTests.kilo4);
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.kilograms)).toBe(accTests.kilo4).then(()=>{console.log('Testing with 4 decimals')});
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.pounds)).toBe(accTests.pound4, 'Pounds not rounded correctly');
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.stones)).toBe(accTests.stone4, 'Stones not rounded correctly');
+
+            weigthPage.clickRadiobtn(weigthElementIds.three_decimals);
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.kilograms)).toBe(accTests.kilo3).then(()=>{console.log('Testing with 3 decimals')});
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.pounds)).toBe(accTests.pound3, 'Pounds not rounded correctly');
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.stones)).toBe(accTests.stone3, 'Stones not rounded correctly');
+
+            weigthPage.clickRadiobtn(weigthElementIds.two_decimals);
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.kilograms)).toBe(accTests.kilo2).then(()=>{console.log('Testing with 2 decimals')});
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.pounds)).toBe(accTests.pound2, 'Pounds not rounded correctly');
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.stones)).toBe(accTests.stone2, 'Stones not rounded correctly');
+
+            weigthPage.clickRadiobtn(weigthElementIds.three_decimals);
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.kilograms)).toBe(accTests.kilo3).then(()=>{console.log('Testing back to 3 decimals')});
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.pounds)).toBe(accTests.pound3, 'Pounds not rounded correctly');
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.stones)).toBe(accTests.stone3, 'Stones not rounded correctly');
+
+            weigthPage.clickRadiobtn(weigthElementIds.four_decimals);
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.kilograms)).toBe(accTests.kilo4).then(()=>{console.log('Testing back to 4 decimals')});
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.pounds)).toBe(accTests.pound4, 'Pounds not rounded correctly');
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.stones)).toBe(accTests.stone4, 'Stones not rounded correctly');
+
+            weigthPage.clickRadiobtn(weigthElementIds.two_decimals);
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.kilograms)).toBe(accTests.kilo2).then(()=>{console.log('Testing from 4 to 2 decimals')});
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.pounds)).toBe(accTests.pound2, 'Pounds not rounded correctly');
+            expect(weigthPage.getValueOfTxtField(weigthElementIds.stones)).toBe(accTests.stone2, 'Stones not rounded correctly');
+        });
+        xit('Checking radio button functions', () => {
+            expect(weigthPage.isRadiobtnChecked(weigthElementIds.four_decimals)).toBeTruthy();
+            weigthPage.clickRadiobtn(weigthElementIds.three_decimals);
+            expect(weigthPage.isRadiobtnChecked(weigthElementIds.three_decimals)).toBeTruthy();
+            weigthPage.clickRadiobtn(weigthElementIds.two_decimals);
+            expect(weigthPage.isRadiobtnChecked(weigthElementIds.two_decimals)).toBeTruthy();
+            weigthPage.clickRadiobtn(weigthElementIds.four_decimals);
+            expect(weigthPage.isRadiobtnChecked(weigthElementIds.four_decimals)).toBeTruthy();
+        });
+
     })
 })

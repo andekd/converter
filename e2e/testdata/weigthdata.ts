@@ -80,6 +80,18 @@ export class WeigthData {
                 "pound": "32830",
                 "stone": "2345"                
             }
-        ]
+        ],
+        "decimaltests": 
+            {
+                "kilo4": "15.5555",
+                "pound4": "34.294",
+                "stone4": "2.4496",
+                "kilo3": "15.556",
+                "pound3": "34.294",
+                "stone3": "2.45",
+                "kilo2": "15.56",
+                "pound2": "34.29",
+                "stone2": "2.45"
+            }
      }
 }
