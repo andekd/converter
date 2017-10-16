@@ -22,7 +22,7 @@
         <h3 class="ind">Accuracy</h3>
         <div class="reg"> 
             <bdo>
-                <input type="radio" name="radiogroup"
+                <input id="two_decimals" type="radio" name="radiogroup"
                 [value]="entries[0].id"
                 (change)="onSelectionChange(entries[0])"
               >
@@ -32,7 +32,7 @@
         </div>
         <div class="reg">
             <bdo>
-                <input type="radio" name="radiogroup"
+                <input id="three_decimals" type="radio" name="radiogroup"
                 [value]="entries[1].id"
                 (change)="onSelectionChange(entries[1])"
               >
@@ -42,7 +42,7 @@
         </div>
         <div class="reg">
             <bdo>
-                <input type="radio" name="radiogroup"
+                <input id="four_decimals" type="radio" name="radiogroup"
                 [checked]="true"
                 [value]="entries[2].id"
                 (change)="onSelectionChange(entries[2])"

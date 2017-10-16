@@ -6,7 +6,10 @@ import {PageObjectFunctions} from '../../../e2e/pageobjectfunctions';
 export enum weigthElementIds {
     kilograms,
     pounds,
-    stones
+    stones,
+    two_decimals,
+    three_decimals,
+    four_decimals
 }
 
 export class WeigthPO extends PageObjectFunctions {

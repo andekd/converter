@@ -11,13 +11,14 @@ import { weigthElementIds } from '../../src/app/weigth/weigth.po';
 describe('Check detail view presentation', function () {
     let appPage: AppPO = new AppPO();
     let speedPage: SpeedPO = new SpeedPO();
-    let tempPage: SpeedPO = new TemperaturePO();
-    let weigthPage: SpeedPO = new WeigthPO();
+    let tempPage: TemperaturePO = new TemperaturePO();
+    let weigthPage: WeigthPO = new WeigthPO();
+    let browserSleep: number = 500;
     
 
     beforeAll(() => {
         //browser.driver.manage().window().maximize();
-        browser.sleep(500);
+        browser.sleep(browserSleep);
     });
 
     describe('Check that presentation of the convert functions are correct', function () {
@@ -29,25 +30,25 @@ describe('Check detail view presentation', function () {
           it('Check that weigth is default at start', () => {
             appPage.navigateTo();
             expect(weigthPage.getTitle()).toBe('Weigth Conversions');
-            browser.sleep(3000);
+            browser.sleep(browserSleep);
         });
         it('Check that speed conversions is shown after clicking speed button', () => {
             appPage.navigateTo();
             appPage.clickButton(appElementIds.speed);
             expect(speedPage.getTitle()).toBe('Speed Conversions');
-            browser.sleep(3000);
+            browser.sleep(browserSleep);
         });
         it('Check that temperature conversions is shown after clicking temperature button', () => {
             appPage.navigateTo();
             appPage.clickButton(appElementIds.temperature);
             expect(tempPage.getTitle()).toBe('Temperature Conversions');
-            browser.sleep(3000);
+            browser.sleep(browserSleep);
         });
         it('Check that weigth conversions is shown after clicking weigth button', () => {
             appPage.navigateTo();
             appPage.clickButton(appElementIds.weigth);
             expect(weigthPage.getTitle()).toBe('Weigth Conversions');
-            browser.sleep(3000);
+            browser.sleep(browserSleep);
         });
     })
 })
