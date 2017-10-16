@@ -58,8 +58,11 @@ export class PageObjectFunctions {
 
     //Dropdown list functions
     getValueOfDropDown(elemmNbr: number){
-        let theElement = element(by.id(this.myIds[elemmNbr]));;
-        return theElement.getText(); 
+        let theElement = element(by.id(this.myIds[elemmNbr])).element(by.css('option:checked'));;
+        return theElement.getText().then((theText) => {
+            let cleanedTxt = theText.trim();
+            return cleanedTxt;
+        }); 
     }
     setValueOfDropDown(elemmNbr: number, value: string){
         let theElement = element(by.id(this.myIds[elemmNbr]));;

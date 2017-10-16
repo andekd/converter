@@ -6,7 +6,8 @@ import {PageObjectFunctions} from '../../../e2e/pageobjectfunctions';
 export enum temperatureElementIds {
     celsius,
     fahrenheit,
-    kelvin
+    kelvin,
+    accDD
 }
 
 export class TemperaturePO extends PageObjectFunctions {
