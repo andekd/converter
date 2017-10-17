@@ -10,7 +10,7 @@ export class PageObjectFunctions {
     
     //Text field functions
     getValueOfTxtField(elemmNbr: number) {
-        let theElement = element(by.id(this.myIds[elemmNbr]));;
+        let theElement = element(by.id(this.myIds[elemmNbr]));
         return theElement.getAttribute('value');
     }
     setValueOfTxtField(elemmNbr: number, fieldValue: string) {
@@ -67,6 +67,10 @@ export class PageObjectFunctions {
     setValueOfDropDown(elemmNbr: number, value: string){
         let theElement = element(by.id(this.myIds[elemmNbr]));;
         theElement.sendKeys(value); 
+        return theElement.getText().then((theText) => {
+            let cleanedTxt = theText.trim();
+            return cleanedTxt;
+        }); 
     }
 
     //Label function

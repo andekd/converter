@@ -82,7 +82,7 @@ describe('Check functionality of weigth view', function () {
 
     describe('Check that Accuracy selection is working', function () {
 
-        it('Testing accuray/rounding', () => {
+        it('Testing accuracy/rounding', () => {
             let accTests = valData.weigthTestData.decimaltests;
             weigthPage.emptyAndSetTextField(weigthElementIds.kilograms, accTests.kilo4);
             expect(weigthPage.getValueOfTxtField(weigthElementIds.kilograms)).toBe(accTests.kilo4).then(() => { console.log('Testing with 4 decimals') });
