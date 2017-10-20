@@ -7,8 +7,8 @@ exports.config = {
   allScriptsTimeout: 11000,
   specs: [
     //'./e2e/**/*.e2e-spec.ts'
-    //'./e2e/**/weigth.e2e-spec.ts'
-    './e2e/**/temperature.e2e-spec.ts'
+    './e2e/**/weigth.e2e-spec.ts'
+    //'./e2e/**/temperature.e2e-spec.ts'
   ],
   capabilities: {
     'browserName': 'chrome'
