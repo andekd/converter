@@ -21,7 +21,7 @@ describe('Check functionality of speed view', function () {
         function checkResults(test, index, errMsg) {
             let currentKph = test[index].kph;
             let currentMps = test[index].mps;
-            let currentMph= test[index].mph;
+            let currentMph = test[index].mph;
             //let kphErrMsg: string = 'Km/s conversion failed for: ' + currentKph + ' km/s';
             //let mpsErrMsg: string = 'Meter/s conversion failed for: ' + currentKph + ' km/s';
             //let mphErrMsg: string = 'Miles/h conversion failed for: ' + currentKph + ' km/s';
@@ -74,42 +74,29 @@ describe('Check functionality of speed view', function () {
                     console.log('Testing with: ' + mphTests[i].mph + ' mph')
                     let mphErrMsg: string = 'Miles/h conversion failed for: ' + mphTests[i].mph + ' mph';
                     speedPage.emptyAndSetTextField(speedElementIds.mph, mphTests[i].mph);
-                checkResults(mphTests, index, mphErrMsg);
-            })(i)
+                    checkResults(mphTests, index, mphErrMsg);
+                })(i)
             }
             browser.sleep(browserSleep);
         });
     });
-/*
-    xdescribe('Check that Accuracy selection is working', function () {
 
-        function checkResults(expKilo, expPound, expStone, nbrOfDecimals: number) {
+    describe('Check that background color changes', function () {
+
+        /*function checkResults(expKilo, expPound, expStone, nbrOfDecimals: number) {
             console.log('Testing with ' + nbrOfDecimals + ' decimals');
             expect(speedPage.getValueOfTxtField(speedElementIds.kilograms)).toBe(expKilo, 'Kilograms not rounded correctly')
             expect(speedPage.getValueOfTxtField(speedElementIds.pounds)).toBe(expPound, 'Pounds not rounded correctly');
             expect(speedPage.getValueOfTxtField(speedElementIds.stones)).toBe(expStone, 'Stones not rounded correctly');
-        }
+        }*/
 
-        it('Testing accuracy/rounding', () => {
-            let accTests = valData.weigthTestData.decimaltests;
-            weigthPage.emptyAndSetTextField(speedElementIds.kilograms, accTests.kilo4);
-            checkResults(accTests.kilo4, accTests.pound4, accTests.stone4, 4);
-
-            weigthPage.clickRadiobtn(speedElementIds.three_decimals);
-            checkResults(accTests.kilo3, accTests.pound3, accTests.stone3, 3);
-            
-            weigthPage.clickRadiobtn(speedElementIds.two_decimals);
-            checkResults(accTests.kilo2, accTests.pound2, accTests.stone2, 2);
-            
-            weigthPage.clickRadiobtn(speedElementIds.three_decimals);
-            checkResults(accTests.kilo3, accTests.pound3, accTests.stone3, 3);
-            
-            weigthPage.clickRadiobtn(speedElementIds.four_decimals);
-            checkResults(accTests.kilo4, accTests.pound4, accTests.stone4, 4);
-            
-            weigthPage.clickRadiobtn(speedElementIds.two_decimals);
-            checkResults(accTests.kilo2, accTests.pound2, accTests.stone2, 2);
+        it('Set and check background color', () => {
+            let colTests = valData.speedTestData.colortests;
+            //check default background
+            expect(speedPage.getBackGroundColor()).toBe('background-color: rgb(187, 255, 255);');
+            // click checkbox to change background color
+            speedPage.clickCheckbox(speedElementIds.chkBox);
+            expect(speedPage.getBackGroundColor()).toBe('background-color: rgb(255, 136, 136);');            
         });
     })
-    */
 })

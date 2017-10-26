@@ -6,7 +6,8 @@ import {PageObjectFunctions} from '../../../e2e/pageobjectfunctions';
 export enum speedElementIds {
     kph,
     mps,
-    mph
+    mph,
+    chkBox
 }
 
 export class SpeedPO extends PageObjectFunctions {
@@ -18,5 +19,11 @@ export class SpeedPO extends PageObjectFunctions {
 
     getTitle() {
         return element(by.id('speedTitle')).getText();
+    }
+
+    getBackGroundColor(){
+        //style="background-color: rgb(187, 255, 255)
+        let theStyle = this.getAttribute(speedElementIds.kph, 'style');
+        return theStyle;
     }
 }

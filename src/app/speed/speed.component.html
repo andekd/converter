@@ -3,7 +3,8 @@
   
   <div class="column-left" align=center>
     <label class="l-conv" for="kph">Km/h</label><br>
-    <input [ngStyle]="{'background-color': '#' + bgColor}" class="i-conv" id="kph" name="kph"  ng-style="{'background-color':color}" [(ngModel)]="kph" placeholder="kph" (keyup)="calc($event)" (focus)=clearAll()>
+    <!--<input [ngStyle]="{'background-color': '#' + bgColor}" class="i-conv" id="kph" name="kph"  ng-style="{'background-color':color}" [(ngModel)]="kph" placeholder="kph" (keyup)="calc($event)" (focus)=clearAll()>-->
+    <input [ngStyle]="{'background-color': '#' + bgColor}" class="i-conv" type="text" id="kph" name="kph"  [(ngModel)]="kph" placeholder="kph" (keyup)="calc($event)" (focus)=clearAll()>
   </div>
   <div class="column-center">
     <label class="l-conv" for="mps">Meter/s</label><br>

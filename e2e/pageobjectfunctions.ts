@@ -87,4 +87,10 @@ export class PageObjectFunctions {
             }
         });
     }
+
+    //get named attribute
+    getAttribute(elemmNbr: number, attrName: string) {
+        let theElement = element(by.id(this.myIds[elemmNbr]));
+        return theElement.getAttribute(attrName);
+    }
 }
