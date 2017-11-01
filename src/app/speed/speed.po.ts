@@ -14,6 +14,7 @@ export class SpeedPO extends PageObjectFunctions {
     
     constructor() {
         super();
+        // Populate element id holder from parent
         this.myIds = speedElementIds;
     }
 

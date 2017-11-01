@@ -16,6 +16,7 @@ export class WeigthPO extends PageObjectFunctions {
     
     constructor() {
         super();
+        // Populate element id holder from parent
         this.myIds = weigthElementIds;
     }
 

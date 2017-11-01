@@ -30,19 +30,16 @@ describe('Check functionality of weigth view', function () {
             expect(weigthPage.getValueOfTxtField(weigthElementIds.stones)).toBe(currentStone, stoneErrMsg);
         }
 
-        it('should display welcome message', () => {
-            appPage.navigateTo();
-            expect(appPage.getTitle()).toEqual('Welcome to Converter!');
-        });
-
         it('Check that weigth is default at start', () => {
             expect(weigthPage.getTitle()).toBe('Weigth Conversions');
             browser.sleep(browserSleep);
         });
+        
         it('Check that accuracy is default 4 decimal', () => {
             expect(weigthPage.isRadiobtnChecked(weigthElementIds.four_decimals)).toBeTruthy();
             browser.sleep(browserSleep);
         });
+
         it('Testing conversion from kilos', () => {
             let kiloTests = valData.weigthTestData.kilotests;
             for (let i in kiloTests) {
@@ -67,6 +64,7 @@ describe('Check functionality of weigth view', function () {
             }
             browser.sleep(browserSleep);
         });
+        
         it('Testing conversion from Stones', () => {
             let stoneTests = valData.weigthTestData.stonetests;
             for (let i in stoneTests) {

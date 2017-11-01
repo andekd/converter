@@ -14,6 +14,7 @@ export class AppPO extends PageObjectFunctions {
     
     constructor() {
         super();
+        // Populate element id holder from parent
         this.myIds = appElementIds;
     }
     navigateTo(){

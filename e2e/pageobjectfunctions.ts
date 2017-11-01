@@ -68,6 +68,7 @@ export class PageObjectFunctions {
         let theElement = element(by.id(this.myIds[elemmNbr]));;
         theElement.sendKeys(value); 
         return theElement.getText().then((theText) => {
+            //Remove leading and trailing blanks
             let cleanedTxt = theText.trim();
             return cleanedTxt;
         }); 

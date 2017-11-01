@@ -116,9 +116,9 @@ describe('Check functionality of temperature view', function () {
             checkValues('four');
 
             function checkValues(currentKey) {
-                expect(tempPage.getValueOfTxtField(temperatureElementIds.celsius)).toBe(accTests[currentKey].celsius, 'Celsius not rounded correctly')
-                expect(tempPage.getValueOfTxtField(temperatureElementIds.fahrenheit)).toBe(accTests[currentKey].fahrenheit, 'Celsius not rounded correctly')
-                expect(tempPage.getValueOfTxtField(temperatureElementIds.kelvin)).toBe(accTests[currentKey].kelvin, 'Celsius not rounded correctly')
+                expect(tempPage.getValueOfTxtField(temperatureElementIds.celsius)).toBe(accTests[currentKey].celsius, 'Celsius not rounded correctly');
+                expect(tempPage.getValueOfTxtField(temperatureElementIds.fahrenheit)).toBe(accTests[currentKey].fahrenheit, 'Celsius not rounded correctly');
+                expect(tempPage.getValueOfTxtField(temperatureElementIds.kelvin)).toBe(accTests[currentKey].kelvin, 'Celsius not rounded correctly');
             }
         });
     });

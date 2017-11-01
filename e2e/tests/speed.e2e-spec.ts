@@ -22,9 +22,6 @@ describe('Check functionality of speed view', function () {
             let currentKph = test[index].kph;
             let currentMps = test[index].mps;
             let currentMph = test[index].mph;
-            //let kphErrMsg: string = 'Km/s conversion failed for: ' + currentKph + ' km/s';
-            //let mpsErrMsg: string = 'Meter/s conversion failed for: ' + currentKph + ' km/s';
-            //let mphErrMsg: string = 'Miles/h conversion failed for: ' + currentKph + ' km/s';
             expect(speedPage.getValueOfTxtField(speedElementIds.kph)).toBe(currentKph, errMsg);
             expect(speedPage.getValueOfTxtField(speedElementIds.mps)).toBe(currentMps, errMsg);
             expect(speedPage.getValueOfTxtField(speedElementIds.mph)).toBe(currentMph, errMsg);
@@ -82,13 +79,6 @@ describe('Check functionality of speed view', function () {
     });
 
     describe('Check that background color changes', function () {
-
-        /*function checkResults(expKilo, expPound, expStone, nbrOfDecimals: number) {
-            console.log('Testing with ' + nbrOfDecimals + ' decimals');
-            expect(speedPage.getValueOfTxtField(speedElementIds.kilograms)).toBe(expKilo, 'Kilograms not rounded correctly')
-            expect(speedPage.getValueOfTxtField(speedElementIds.pounds)).toBe(expPound, 'Pounds not rounded correctly');
-            expect(speedPage.getValueOfTxtField(speedElementIds.stones)).toBe(expStone, 'Stones not rounded correctly');
-        }*/
 
         it('Set and check background color', () => {
             let colTests = valData.speedTestData.colortests;
