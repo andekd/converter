@@ -19,9 +19,6 @@ describe('Check detail view presentation', function () {
     beforeAll(() => {
         //browser.driver.manage().window().maximize();
         browser.sleep(browserSleep);
-        console.log('----');
-        console.log('------------------> sleep time in weigth ' + browserSleep);
-        console.log('----');
     });
 
     describe('Check that presentation of the convert functions are correct', function () {
