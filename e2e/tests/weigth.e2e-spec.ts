@@ -8,12 +8,13 @@ import { WeigthData } from '../testdata/weigthdata';
 describe('Check functionality of weigth view', function () {
     let appPage: AppPO = new AppPO();
     let weigthPage: WeigthPO = new WeigthPO();
-    let browserSleep: number = 500;
+    let browserSleep: number = browser.testSleepTime;
     let valData: WeigthData = new WeigthData();
 
     beforeAll(() => {
         //browser.driver.manage().window().maximize();
         browser.sleep(browserSleep);
+        appPage.navigateTo();
     });
 
     describe('Check that convert functions are correct', function () {

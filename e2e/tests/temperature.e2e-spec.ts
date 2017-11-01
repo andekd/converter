@@ -8,9 +8,8 @@ import { TemperatureData } from '../testdata/temperaturedata';
 describe('Check functionality of temperature view', function () {
     let appPage: AppPO = new AppPO();
     let tempPage: TemperaturePO = new TemperaturePO();
-    let browserSleep: number = 500;
+    let browserSleep: number = browser.testSleepTime;
     let valData: TemperatureData = new TemperatureData();
-
 
     beforeAll(() => {
         //browser.driver.manage().window().maximize();
@@ -31,10 +30,11 @@ describe('Check functionality of temperature view', function () {
             appPage.clickButton(appElementIds.temperature);
             expect(tempPage.getTitle()).toBe('Temperature Conversions');
         });
+
         it('Check that accuracy is default 4 decimal', () => {
             expect(tempPage.getValueOfDropDown(temperatureElementIds.accDD)).toBe('four');
-            browser.sleep(browserSleep);
         });
+
         it('Testing conversion from celsius', () => {
             let celsiusTests = valData.temperatureTestData.celsiustests;
             for (let i in celsiusTests) {
@@ -47,10 +47,11 @@ describe('Check functionality of temperature view', function () {
                     let kelvinErrMsg: string = 'Kelvin conversion failed for: ' + currentCelsius;
                     tempPage.emptyAndSetTextField(temperatureElementIds.celsius, currentCelsius);
                     checkValues(celsiusTests, index, 'celsius');
+                    browser.sleep(browserSleep);
                 })(i)
             }
-            browser.sleep(browserSleep);
         });
+
         it('Testing conversion from fahrenheit', () => {
             let fahrenheitTests = valData.temperatureTestData.fahrenheittests;
             for (let i in fahrenheitTests) {
@@ -63,10 +64,11 @@ describe('Check functionality of temperature view', function () {
                     let kelvinErrMsg: string = 'Kelvin conversion failed for: ' + currentCelsius;
                     tempPage.emptyAndSetTextField(temperatureElementIds.fahrenheit, currentFahrenheit);
                     checkValues(fahrenheitTests, index, 'fahrenheit');
+                    browser.sleep(browserSleep);
                 })(i)
             }
-            browser.sleep(browserSleep);
         });
+
         it('Testing conversion from kelvin', () => {
             let kelvinTests = valData.temperatureTestData.kelvintests;
             for (let i in kelvinTests) {
@@ -79,11 +81,12 @@ describe('Check functionality of temperature view', function () {
                     let kelvinErrMsg: string = 'Kelvin  was not correctly given for: ' + currentCelsius;
                     tempPage.emptyAndSetTextField(temperatureElementIds.fahrenheit, currentFahrenheit);
                     checkValues(kelvinTests, index, 'kelvin');
+                    browser.sleep(browserSleep);
                 })(i)
             }
-            browser.sleep(browserSleep);
         });
     });
+
     describe('Check that Accuracy selection is working', function () {
 
         it('Testing accuracy/rounding', () => {
@@ -114,7 +117,8 @@ describe('Check functionality of temperature view', function () {
             console.log('Back to four');
             tempPage.setValueOfDropDown(temperatureElementIds.accDD, 'four');
             checkValues('four');
-
+            browser.sleep(browserSleep);
+            
             function checkValues(currentKey) {
                 expect(tempPage.getValueOfTxtField(temperatureElementIds.celsius)).toBe(accTests[currentKey].celsius, 'Celsius not rounded correctly');
                 expect(tempPage.getValueOfTxtField(temperatureElementIds.fahrenheit)).toBe(accTests[currentKey].fahrenheit, 'Celsius not rounded correctly');

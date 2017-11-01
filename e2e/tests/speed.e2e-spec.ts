@@ -9,11 +9,12 @@ describe('Check functionality of speed view', function () {
     let appPage: AppPO = new AppPO();
     let speedPage: SpeedPO = new SpeedPO();
     let valData: SpeedData = new SpeedData();
-    let browserSleep: number = 500;
+    let browserSleep: number = browser.testSleepTime;
 
     beforeAll(() => {
         //browser.driver.manage().window().maximize();
         browser.sleep(browserSleep);
+        appPage.navigateTo();
     });
 
     describe('Check that convert functions are correct', function () {
@@ -27,16 +28,12 @@ describe('Check functionality of speed view', function () {
             expect(speedPage.getValueOfTxtField(speedElementIds.mph)).toBe(currentMph, errMsg);
         }
 
-        it('should display welcome message', () => {
-            appPage.navigateTo();
-            expect(appPage.getTitle()).toEqual('Welcome to Converter!');
-        });
-
         it('Check that speed title is shown upon selection', () => {
             appPage.clickButton(appElementIds.speed);
             expect(speedPage.getTitle()).toBe('Speed Conversions');
             browser.sleep(browserSleep);
         });
+
         it('Testing conversion from km/h', () => {
             let kpsTests = valData.speedTestData.kph;
 
@@ -47,10 +44,9 @@ describe('Check functionality of speed view', function () {
                     speedPage.emptyAndSetTextField(speedElementIds.kph, kpsTests[i].kph);
                     checkResults(kpsTests, index, kphErrMsg);
                 })(i)
+                browser.sleep(browserSleep);
             }
-            //browser.sleep(browserSleep);
         });
-
 
         it('Testing conversion from m/s', () => {
             let mpsTests = valData.speedTestData.mps;
@@ -60,10 +56,11 @@ describe('Check functionality of speed view', function () {
                     let mpsErrMsg: string = 'Meter/s conversion failed for: ' + mpsTests[i].mps + ' m/s';
                     speedPage.emptyAndSetTextField(speedElementIds.mps, mpsTests[i].mps);
                     checkResults(mpsTests, index, mpsErrMsg);
+                    browser.sleep(browserSleep);
                 })(i)
             }
-            browser.sleep(browserSleep);
         });
+
         it('Testing conversion from mph', () => {
             let mphTests = valData.speedTestData.mph;
             for (let i in mphTests) {
@@ -73,8 +70,8 @@ describe('Check functionality of speed view', function () {
                     speedPage.emptyAndSetTextField(speedElementIds.mph, mphTests[i].mph);
                     checkResults(mphTests, index, mphErrMsg);
                 })(i)
+                browser.sleep(browserSleep);
             }
-            browser.sleep(browserSleep);
         });
     });
 
@@ -86,7 +83,8 @@ describe('Check functionality of speed view', function () {
             expect(speedPage.getBackGroundColor()).toBe('background-color: rgb(187, 255, 255);');
             // click checkbox to change background color
             speedPage.clickCheckbox(speedElementIds.chkBox);
-            expect(speedPage.getBackGroundColor()).toBe('background-color: rgb(255, 136, 136);');            
+            expect(speedPage.getBackGroundColor()).toBe('background-color: rgb(255, 136, 136);');
+            browser.sleep(browserSleep);
         });
     })
 })

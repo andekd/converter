@@ -13,37 +13,43 @@ describe('Check detail view presentation', function () {
     let speedPage: SpeedPO = new SpeedPO();
     let tempPage: TemperaturePO = new TemperaturePO();
     let weigthPage: WeigthPO = new WeigthPO();
-    let browserSleep: number = 500;
-    
+    let browserSleep: number = browser.testSleepTime;
+
 
     beforeAll(() => {
         //browser.driver.manage().window().maximize();
         browser.sleep(browserSleep);
+        console.log('----');
+        console.log('------------------> sleep time in weigth ' + browserSleep);
+        console.log('----');
     });
 
     describe('Check that presentation of the convert functions are correct', function () {
         it('should display welcome message', () => {
             appPage.navigateTo();
             expect(appPage.getTitle()).toEqual('Welcome to Converter!');
-          });
-        
-          it('Check that weigth is default at start', () => {
+        });
+
+        it('Check that weigth is default at start', () => {
             appPage.navigateTo();
             expect(weigthPage.getTitle()).toBe('Weigth Conversions');
             browser.sleep(browserSleep);
         });
+
         it('Check that speed conversions is shown after clicking speed button', () => {
             appPage.navigateTo();
             appPage.clickButton(appElementIds.speed);
             expect(speedPage.getTitle()).toBe('Speed Conversions');
             browser.sleep(browserSleep);
         });
+
         it('Check that temperature conversions is shown after clicking temperature button', () => {
             appPage.navigateTo();
             appPage.clickButton(appElementIds.temperature);
             expect(tempPage.getTitle()).toBe('Temperature Conversions');
             browser.sleep(browserSleep);
         });
+
         it('Check that weigth conversions is shown after clicking weigth button', () => {
             appPage.navigateTo();
             appPage.clickButton(appElementIds.weigth);
