@@ -100,25 +100,42 @@ describe('Check functionality of temperature view', function () {
 
             console.log(accTests.four.celsius);
             let key;
+            let browserWinNbr = 0;
             for (key in accTests) {
                 (function (theKey) {
                     console.log('Number of decimals: ' + theKey);
-                    tempPage.setValueOfDropDown(temperatureElementIds.accDD, theKey);
-                    checkValues(theKey);
+                    browser.executeScript('window.open()').then(function () {
+                        browserWinNbr++;
+                        browser.getAllWindowHandles().then(handles => {
+                            browser.switchTo().window(handles[browserWinNbr]); // 0 or 1 to switch between the 2 open windows
+                            appPage.navigateTo();
+                            appPage.clickButton(appElementIds.temperature);
+                            tempPage.emptyAndSetTextField(temperatureElementIds.celsius, accTests.four.celsius);
+                            tempPage.setValueOfDropDown(temperatureElementIds.accDD, theKey);
+                            checkValues(theKey);
+                        });
+                    });
+                    //tempPage.setValueOfDropDown(temperatureElementIds.accDD, theKey);
+                    //checkValues(theKey);
                 })(key)
                 // for some reason setting of drop down is much faster than setting of check boxes
                 // this means that setting of next accuracy will occur before evaluation of current accuracy is done
-                // wich ofc means that test will fail
-                // to syncronize tests so that one test not runs before previous test has completet is a
+                // wich ofc means that test will fail (waitForAngular does not work)
+                // to syncronize tests so that one test not runs before previous test has completed is a
                 // complicatet thing to do, hence i will settle with a simple hard wait (sleep)
-                browser.sleep(1100);
+                //browser.sleep(1100);
             }
+            /*
             //Check that no decimals were forgotten
+            browser.getAllWindowHandles().then(handles => {
+                browser.switchTo().window(handles[0]); // back to default window
+                appPage.navigateTo();
+            });
             console.log('Back to four');
             tempPage.setValueOfDropDown(temperatureElementIds.accDD, 'four');
             checkValues('four');
             browser.sleep(browserSleep);
-            
+            */
             function checkValues(currentKey) {
                 expect(tempPage.getValueOfTxtField(temperatureElementIds.celsius)).toBe(accTests[currentKey].celsius, 'Celsius not rounded correctly');
                 expect(tempPage.getValueOfTxtField(temperatureElementIds.fahrenheit)).toBe(accTests[currentKey].fahrenheit, 'Celsius not rounded correctly');
