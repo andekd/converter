@@ -104,7 +104,11 @@ describe('Check functionality of temperature view', function () {
             for (key in accTests) {
                 (function (theKey) {
                     console.log('Number of decimals: ' + theKey);
-                    browser.executeScript('window.open()').then(function () {
+                // for some reason setting of drop down is much faster than setting of check boxes
+                // this means that setting of next accuracy will occur before evaluation of current accuracy is done
+                // wich ofc means that test will fail (waitForAngular does not work)
+                // So here we will open each accuracy test in it's own browsertab, so that each setting has a unique result
+                        browser.executeScript('window.open()').then(function () {
                         browserWinNbr++;
                         browser.getAllWindowHandles().then(handles => {
                             browser.switchTo().window(handles[browserWinNbr]); // 0 or 1 to switch between the 2 open windows
@@ -115,15 +119,7 @@ describe('Check functionality of temperature view', function () {
                             checkValues(theKey);
                         });
                     });
-                    //tempPage.setValueOfDropDown(temperatureElementIds.accDD, theKey);
-                    //checkValues(theKey);
                 })(key)
-                // for some reason setting of drop down is much faster than setting of check boxes
-                // this means that setting of next accuracy will occur before evaluation of current accuracy is done
-                // wich ofc means that test will fail (waitForAngular does not work)
-                // to syncronize tests so that one test not runs before previous test has completed is a
-                // complicatet thing to do, hence i will settle with a simple hard wait (sleep)
-                //browser.sleep(1100);
             }
             /*
             //Check that no decimals were forgotten
